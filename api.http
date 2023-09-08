@@ -1,0 +1,54 @@
+###recuperar toodas las peliculas
+GET http://localhost:1234/movies
+
+### por id
+GET http://localhost:1234/movies/c8a7d63f-3b04-44d3-9d95-8782fd7dcfaf
+
+###recuperar por genero
+GET http://localhost:1234/movies?genero=action
+
+
+### Crear pelicula
+POST http://localhost:1234/movies
+Content-Type: application/json
+
+{
+    "title": "The Avengers",
+    "year": 2012,
+    "director": "Joss Whedon",
+    "duration": 143,
+    "poster": "https://img.fruugo.com/product/7/41/14532417_max.jpg",
+    "genre": [
+      "Action",
+      "Adventure",
+      "Sci-Fi"
+    ]
+}
+
+###
+POST http://localhost:1234/movies
+Content-Type: application/json
+
+{
+    "title": "The Avengers",
+    "year": 2012,
+    "director": "Joss Whedon"   
+}
+###
+POST http://localhost:1234/movies
+Content-Type: application/json
+
+{
+    "title": 1,
+    "year": "2012"     
+}
+
+###ACTUALIZAR UNA PELICULA, PERO SOLO UNA PARTE, POR ESO USAREMOS PATCH
+
+PATCH http://localhost:1234/movies/dcdd0fad-a94c-4810-8acc-5f108d3b18c3
+Content-Type: application/json
+
+{
+  "title":"The Shawshank Redemption",
+  "year":1998
+}
